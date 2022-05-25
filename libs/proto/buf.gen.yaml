@@ -6,7 +6,7 @@ plugins:
   - name: ts
     strategy: all
     path: protoc-gen-ts_proto
-    out: src
+    out: libs/proto/src
     opt:
       - nestJs=true
       - addGrpcMetadata=true
