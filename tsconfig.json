@@ -16,6 +16,20 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@tournament/logger": [
+        "libs/logger/src"
+      ],
+      "@tournament/logger/*": [
+        "libs/logger/src/*"
+      ],
+      "@tournament/proto": [
+        "libs/proto/src"
+      ],
+      "@tournament/proto/*": [
+        "libs/proto/src/*"
+      ]
+    }
   }
 }

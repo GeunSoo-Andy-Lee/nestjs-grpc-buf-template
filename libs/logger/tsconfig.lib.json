@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "../../dist/libs/logger"
+  },
+  //"include": ["src/**/*"],
+  "include": ["proto"],
+  "exclude": ["**/*.ts", "node_modules", "dist", "test", "**/*spec.ts"]
+}

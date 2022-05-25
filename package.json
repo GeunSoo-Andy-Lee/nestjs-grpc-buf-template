@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-grpc-buf-template",
+  "name": "tournament",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -7,22 +7,28 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "postbuild": "ncp libs/proto/proto dist/libs/proto/src",
+    "build": "npm run build:proto && nest build",
+    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
+    "build:proto": "buf generate --template libs/proto/buf.gen.yaml libs/proto/proto",
+    "start:auth": "nest start auth-server",
     "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
+    "start:debug:auth": "nest start auth-server --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/test/jest-e2e.json"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.12",
     "@nestjs/common": "^8.4.5",
     "@nestjs/core": "^8.4.5",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/microservices": "^8.4.5",
     "@nestjs/platform-express": "^8.4.5",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -41,13 +47,16 @@
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "grpc-tools": "^1.11.2",
     "jest": "28.1.0",
+    "ncp": "^2.0.0",
     "prettier": "^2.6.2",
     "source-map-support": "^0.5.21",
     "supertest": "^6.2.3",
     "ts-jest": "28.0.3",
     "ts-loader": "^9.3.0",
     "ts-node": "^10.8.0",
+    "ts-proto": "^1.112.2",
     "tsconfig-paths": "4.0.0",
     "typescript": "^4.6.4"
   },
@@ -57,7 +66,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -65,7 +74,11 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ]
   }
 }

@@ -1,0 +1,43 @@
+# https://docs.buf.build/configuration/v1/buf-gen-yaml
+version: v1
+
+plugins:
+  # https://github.com/stephenh/ts-proto#buf
+  - name: ts
+    strategy: all
+    path: protoc-gen-ts_proto
+    out: src
+    opt:
+      - nestJs=true
+      - addGrpcMetadata=true
+      - outputClientImpl=false
+      #- outputClientImpl=grpc-web
+      #- addNestjsRestParameter=true
+      #- outputSchema=true
+      #- outputTypeRegistry=true
+      #- outputServices=grpc-js
+      #- returnObservable=false
+      #- useOptionals=true
+      #- forceLong=long
+      #- forceLong=string
+      #- esModuleInterop=true
+      #- context=true
+
+#  - name: js
+#    out: dist/proto
+#    opt: import_style=commonjs,binary
+#
+#  - name: grpc
+#    out: dist/proto
+#    opt: grpc_js
+#    path: grpc_tools_node_protoc_plugin
+#    #strategy: all
+
+#  - name: ts
+#    out: dist/proto
+#    opt: grpc_js
+
+#  - name: ts
+#    out: dist/proto
+#    strategy: all
+#

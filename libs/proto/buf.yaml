@@ -1,0 +1,36 @@
+# https://docs.buf.build/configuration/v1/buf-yaml
+version: v1
+
+build:
+  excludes: ["tmp"]
+
+lint:
+  ignore: []
+  use:
+    - DEFAULT
+  enum_zero_value_suffix: _UNSPECIFIED
+  allow_comment_ignores: true
+  rpc_allow_same_request_response: false
+  rpc_allow_google_protobuf_empty_requests: false
+  rpc_allow_google_protobuf_empty_responses: false
+  service_suffix: Service
+
+breaking:
+  use:
+    - FILE
+  ignore: []
+
+#name: buf.build/googleapis/googleapis
+#deps:
+#  - buf.build/googleapis/googleapis
+
+#  ignore_only:
+#   - PACKAGE_VERSION_SUFFIX
+
+#except:
+#  - PACKAGE_VERSION_SUFFIX
+#  - FIELD_LOWER_SNAKE_CASE
+#  - SERVICE_SUFFIX
+
+#ignore:
+#  - google/type/datetime.proto
