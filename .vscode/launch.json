@@ -1,0 +1,29 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Sample Server",
+      "args": [
+        "${workspaceFolder}/dist/apps/sample.server/src/main.js"
+      ],
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register",
+        "-r",
+        "tsconfig-paths/register"
+      ],
+      "sourceMaps": true,
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceRoot}/dist/apps/sample.server",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnSessionStart",
+      "runtimeExecutable": "node"
+    }
+  ]
+}

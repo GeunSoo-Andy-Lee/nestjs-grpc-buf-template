@@ -18,18 +18,19 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@tournament/logger": [
+      "@logger": [
         "libs/logger/src"
       ],
-      "@tournament/logger/*": [
+      "@logger/*": [
         "libs/logger/src/*"
       ],
-      "@tournament/proto": [
-        "libs/proto/src"
+      "@proto": [
+        "libs/protos/generated"
       ],
-      "@tournament/proto/*": [
-        "libs/proto/src/*"
+      "@proto/*": [
+        "libs/protos/generated/*"
       ]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }

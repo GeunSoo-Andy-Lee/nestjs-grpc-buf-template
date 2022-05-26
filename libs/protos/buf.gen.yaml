@@ -6,16 +6,16 @@ plugins:
   - name: ts
     strategy: all
     path: protoc-gen-ts_proto
-    out: libs/proto/src
+    out: libs/protos/generated
     opt:
       - nestJs=true
       - addGrpcMetadata=true
       - outputClientImpl=false
+      - outputServices=grpc-js
       #- outputClientImpl=grpc-web
       #- addNestjsRestParameter=true
       #- outputSchema=true
       #- outputTypeRegistry=true
-      #- outputServices=grpc-js
       #- returnObservable=false
       #- useOptionals=true
       #- forceLong=long
@@ -24,20 +24,20 @@ plugins:
       #- context=true
 
 #  - name: js
-#    out: dist/proto
+#    out: dist/libs/proto
 #    opt: import_style=commonjs,binary
 #
 #  - name: grpc
-#    out: dist/proto
+#    out: dist/libs/proto
 #    opt: grpc_js
 #    path: grpc_tools_node_protoc_plugin
 #    #strategy: all
 
 #  - name: ts
-#    out: dist/proto
+#    out: dist/libs/proto
 #    opt: grpc_js
 
 #  - name: ts
-#    out: dist/proto
+#    out: dist/libs/proto
 #    strategy: all
 #

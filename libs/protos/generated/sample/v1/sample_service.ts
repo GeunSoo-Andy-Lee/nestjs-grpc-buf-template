@@ -2,7 +2,7 @@
 import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import * as Long from 'long';
 import * as _m0 from 'protobufjs/minimal';
-import { Language_Code } from '../../sample/v1/sample';
+import { Code } from '../../sample/v1/code';
 import { Observable } from 'rxjs';
 import { Metadata } from '@grpc/grpc-js';
 
@@ -12,7 +12,7 @@ export interface GreetRequest {
 /** The name of the thing or person to greet. */
 name: string,
 /** Denotes which language to use for the greeting. */
-language: Language_Code,
+language: Code,
 }
 
 export interface GreetResponse {

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "sample/v1/sample.proto";
+import "sample/v1/code.proto";
 
 package sample.v1;
 
@@ -13,7 +13,7 @@ message GreetRequest {
   string name = 1;
 
   // Denotes which language to use for the greeting.
-  sample.v1.Language.Code language = 2;
+  sample.v1.Code language = 2;
 }
 
 message GreetResponse {

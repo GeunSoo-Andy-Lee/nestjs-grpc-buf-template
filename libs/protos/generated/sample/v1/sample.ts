@@ -4,11 +4,8 @@ import * as _m0 from 'protobufjs/minimal';
 
 export const protobufPackage = 'sample.v1';
 
-export interface Language {
-}
-
 /** The ISO 639-1 language code. */
-export enum Language_Code {
+export enum Sample {
 CODE_UNSPECIFIED = 0,
 CODE_EN = 1,
 UNRECOGNIZED = -1,

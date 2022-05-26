@@ -1,8 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": false,
-    "outDir": "../../dist/apps/auth-server"
+    "declaration": true,
+    "outDir": "../../dist/libs/proto"
+    //"assets": ["proto/**/*.proto"],
+    //"watchAssets": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
